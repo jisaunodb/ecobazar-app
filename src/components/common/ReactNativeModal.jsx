@@ -21,6 +21,55 @@ import toast from "react-hot-toast";
 
 const CODE_FILES = [
   {
+    name: "StandaloneApp.js (⭐ 1-File Instant Run)",
+    path: "react-native-app/StandaloneApp.js",
+    desc: "🚀 ZERO SETUP: Paste directly into Expo Snack (snack.expo.dev) or App.js. Just change BACKEND_API_URL!",
+    code: `// =============================================================================
+// 🌿 ECOBAZAR - ZERO CONFIGURATION REACT NATIVE APP
+// 🚀 Copy-paste this file directly into Expo Snack (https://snack.expo.dev)
+//    or replace App.js in any new Expo project!
+// =============================================================================
+
+import React, { useState, useEffect } from "react";
+import {
+  View, Text, StyleSheet, TouchableOpacity, ScrollView,
+  FlatList, Image, TextInput, SafeAreaView, StatusBar, Alert
+} from "react-native";
+import { Ionicons } from "@expo/vector-icons";
+
+// =============================================================================
+// 👉 আপনার ব্যাকএন্ড API লিঙ্ক এখানে বসান (Paste your Backend API URL here)
+// =============================================================================
+const BACKEND_API_URL = "http://192.168.0.100:5000/api"; // 👈 আপনার ব্যাকএন্ড লিঙ্ক
+
+// Note: If BACKEND_API_URL is empty or backend is offline,
+// the app automatically displays built-in organic demo products!
+// Full file available in /react-native-app/StandaloneApp.js`
+  },
+  {
+    name: "api.js (Backend Link Config)",
+    path: "react-native-app/src/config/api.js",
+    desc: "🌐 Change API_BASE_URL to connect all screens to your Node.js/Python/PHP backend",
+    code: `// =============================================================================
+// 🌐 BACKEND API CONFIGURATION
+// 👉 এখানে আপনার ব্যাকএন্ডের API URL টি বসিয়ে দিন
+// =============================================================================
+
+export const API_BASE_URL = "http://192.168.0.100:5000/api";
+
+export const ENDPOINTS = {
+  LOGIN: "/auth/login",
+  REGISTER: "/auth/register",
+  GET_PROFILE: "/auth/profile",
+  GET_PRODUCTS: "/products",
+  GET_CATEGORIES: "/categories",
+  GET_PRODUCT_DETAILS: (id) => \`/products/\${id}\`,
+  CREATE_PRODUCT: "/products",
+  CREATE_ORDER: "/orders",
+  GET_MY_ORDERS: "/orders/my-orders",
+};`
+  },
+  {
     name: "README.md",
     path: "react-native-app/README.md",
     desc: "Installation & Run instructions for Android & iOS (Expo Go & APK Build)",

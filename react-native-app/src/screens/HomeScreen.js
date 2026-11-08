@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -16,17 +16,29 @@ import { useSelector, useDispatch } from "react-redux";
 import { COLORS } from "../constants/theme";
 import { CATEGORIES } from "../constants/mockData";
 import { ProductCard } from "../components/ProductCard";
+import { apiService } from "../services/apiService";
+import { API_BASE_URL } from "../config/api";
 
 export const HomeScreen = ({ navigation }) => {
   const [activeCategory, setActiveCategory] = useState("All");
-  const products = useSelector((state) => state.products.products);
+  const reduxProducts = useSelector((state) => state.products.products);
+  const [productsList, setProductsList] = useState(reduxProducts);
   const cartItems = useSelector((state) => state.cart.items);
   const user = useSelector((state) => state.auth.user);
 
+  useEffect(() => {
+    // 🌐 Automatically fetch products from backend API if configured
+    apiService.products.getAll().then((data) => {
+      if (Array.isArray(data) && data.length > 0) {
+        setProductsList(data);
+      }
+    });
+  }, []);
+
   const filteredProducts =
     activeCategory === "All"
-      ? products
-      : products.filter((p) => p.category.toLowerCase().includes(activeCategory.toLowerCase()));
+      ? productsList
+      : productsList.filter((p) => p.category.toLowerCase().includes(activeCategory.toLowerCase()));
 
   return (
     <SafeAreaView style={styles.container}>

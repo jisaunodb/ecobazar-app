@@ -15,6 +15,7 @@ import { COLORS } from "../constants/theme";
 import { Header } from "../components/Header";
 import { clearCart } from "../redux/slices/cartSlice";
 import { addOrder } from "../redux/slices/orderSlice";
+import { apiService } from "../services/apiService";
 
 export const CheckoutScreen = ({ navigation }) => {
   const dispatch = useDispatch();
@@ -47,6 +48,9 @@ export const CheckoutScreen = ({ navigation }) => {
       shippingAddress: `${street}, ${city}`,
       items: items.map((i) => ({ name: i.name, qty: i.quantity, price: i.price }))
     };
+
+    // 🌐 Automatically sync order with backend API
+    apiService.orders.create(newOrder).catch((e) => console.log("Order sync skipped:", e.message));
 
     dispatch(addOrder(newOrder));
     dispatch(clearCart());
