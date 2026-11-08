@@ -6,7 +6,7 @@
 // উদাহরণ:
 // - লোকালহোস্ট টেস্ট করার জন্য (আপনার কম্পিউটারের Wi-Fi IP ব্যবহার করুন, যেমন http://192.168.0.105:5000/api)
 // - লাইভ সার্ভারের জন্য (যেমন https://api.yourdomain.com/api)
-export const API_BASE_URL = "http://192.168.0.100:5000/api";
+export const API_BASE_URL = "https://ecobazar-backend-1qs6.onrender.com";
 
 // API Endpoints Mapping
 export const ENDPOINTS = {

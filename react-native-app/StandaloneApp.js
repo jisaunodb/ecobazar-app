@@ -24,7 +24,7 @@ import { Ionicons } from "@expo/vector-icons";
 // =============================================================================
 // 👉 আপনার ব্যাকএন্ড API লিঙ্ক এখানে বসান (Paste your Backend API URL here)
 // =============================================================================
-const BACKEND_API_URL = ""; // e.g. "http://192.168.0.105:5000/api" or "https://api.yourdomain.com/api"
+const BACKEND_API_URL = "https://ecobazar-backend-1qs6.onrender.com";
 
 // Sample Demo Data (Used when BACKEND_API_URL is empty or backend is offline)
 const DEMO_PRODUCTS = [

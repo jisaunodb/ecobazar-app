@@ -5,8 +5,8 @@
 
 // উদাহরণ:
 // - লোকালহোস্ট টেস্ট করতে আপনার পিসির IP দিন: "http://192.168.0.105:5000/api"
-// - লাইভ সার্ভার: "https://api.yourdomain.com/api"
-export const API_BASE_URL = ""; 
+// - আপনার লাইভ রেন্ডার ব্যাকএন্ড:
+export const API_BASE_URL = "https://ecobazar-backend-1qs6.onrender.com"; 
 
 // Default headers helper
 export const getHeaders = (token = null) => {
